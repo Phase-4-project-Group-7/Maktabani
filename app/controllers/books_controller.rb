@@ -10,14 +10,14 @@ wrap_parameters format: []
         render json: @book
       end
     
-      post create
-        @book = Book.create!(params)
+      def create
+        @book = Book.create!(book_params)
         render json: @book, status: :created
       end
     
       def update
         find_book
-        @book.update!(params)
+        @book.update!(book_params)
         render json: @book, status: :accepted
        end
     
@@ -31,7 +31,7 @@ wrap_parameters format: []
       def find_book
         @book = Book.find(params[:id])
       end
-      def params
+      def book_params
         params.permit(:name, :author, :category)
       end    
       def not_found_error
