@@ -1,20 +1,34 @@
 class ReviewsController < ApplicationController
 
   def create
-    review = @current_user.review.create!(:review_params)
-    render json: review, status: :created
+    find_book
+    @review = @book.reviews.create!(user_params)
+   render json: @review, status: :accepted
   end
+  
 
   def update
-    review = find(params[:id])
-    review.update!(:user_params)
-    render json: review, status: :accepted
+    find_review
+    @review.update!(user_params)
+    render json: @review, status: :accepted
   end
 
   def destroy
-    review = find(params[:id])
-    review.destroy
+    find_review
+    @review.destroy
     head :no_content
+  end
+
+  private
+  def user_params
+    params.permit(:review)
+  end
+  def find_review
+    @review = Review.find(params[:id])
+  end
+
+  def find_book
+    @book = Book.find(params[:id])
   end
 
 end
