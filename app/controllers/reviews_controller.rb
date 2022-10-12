@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
+wrap_parameters format: []
 
   def create
     find_book
@@ -30,5 +32,7 @@ class ReviewsController < ApplicationController
   def find_book
     @book = Book.find(params[:id])
   end
-
+  def not_found_error
+    render json: {error: "Review not found"}, status: :not_found
+  end
 end
