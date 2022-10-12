@@ -4,25 +4,25 @@ wrap_parameters format: []
 
   def create
     find_book
-    @review = @book.reviews.create!(user_params)
+    @review = Review.create!(review_params)
+    @review.user_id = current_user.id
    render json: @review, status: :accepted
   end
   
-
   def update
-    find_review
-    @review.update!(user_params)
+    find_book
+    @review.update!(review_params)
     render json: @review, status: :accepted
   end
 
   def destroy
-    find_review
+    find_book
     @review.destroy
     head :no_content
   end
 
   private
-  def user_params
+  def review_params
     params.permit(:review)
   end
   def find_review
