@@ -1,0 +1,25 @@
+.sect-info {
+    display: flex;
+    margin-top: 5px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JGVBBnPWwUTWGPct4kJvyRy48MiZpDdbTQ&usqp=CAU");
+    background-color: rgb(195, 195, 250);
+    background-repeat: no-repeat ;
+    background-size: contain;
+    margin-left: 30px;
+    margin-right: 30px;
+    height: 60vh;
+
+}
+.text{
+    /* font-size: x-large; */
+    margin-left: 15px;
+    color: azure;
+    width: 65%;
+    margin-top: 50px;
+
+}
+img {
+    height: 90%;
+    margin-top: 20px;
+
+}
