@@ -1,0 +1,36 @@
+.navbar{
+    display: flex;
+    gap:100px;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-bottom: 1px solid rgb(115, 158, 250);
+    
+  }
+  h1{
+      color: rgb(172, 170, 247);
+  }
+.header-name{
+    margin-right: 40px;
+}
+.navbar-elements{
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    text-decoration: none;
+    margin-right: 40px;
+    
+}
+.signup{
+    margin: 40px;
+    padding: 5px;
+    background-color: #cbcbf8;
+    border: 2px solid black;
+}
+.login{
+    margin: 40px;
+    padding: 5px;
+    background-color: rgb(186, 186, 245);
+    border: 2px solid black;
+
+}

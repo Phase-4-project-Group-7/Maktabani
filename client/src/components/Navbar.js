@@ -1,32 +1,53 @@
 import React from 'react'; 
 import { Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ( {user, setUser}) => {
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+          if (r.ok) {
+            setUser(null);
+          }
+        });
+    }
   return (
-    <div className='navbar'>
+      <header>
+        <div className='navbar'>
 
-        <div className='header-name'>
-            <h1>Maktabani</h1>
-        </div>
+            <div className='header-name'>
+                <h1>Maktabani</h1>
+            </div>
 
-        <div className='navbar-elements'>
-            <Link to='/home'>
-                <div> <h3>Home</h3> </div>
-            </Link>
-            <Link to='/books'>
-                <div> <h3>Books</h3> </div>
-            </Link>
-            <Link to='/categories'>
-                <div> <h3>Categories</h3> </div>
-            </Link>
-            <Link to='/favorites'>
-                <div> <h3>Favorites</h3> </div>
-            </Link>
+            <div className='navbar-elements'>
+                <Link to='/'>
+                    <div> <h3>Home</h3> </div>
+                </Link>
+                <Link to='/books'>
+                    <div> <h3>Books</h3> </div>
+                </Link>
+                <Link to='/categories'>
+                    <div> <h3>Categories</h3> </div>
+                </Link>
+                <Link to='/reviews'>
+                    <div> <h3>Reviews</h3> </div>
+                </Link>
 
-        </div>
+            </div>
+
+            <div>
+                {user ? (
+                <button onClick={handleLogoutClick}>Logout</button>
+                ) : (
+                <>
+                    <Link to="/signup">Signup</Link>
+
+                    <Link to="/login">Login</Link>
+                </>
+                )}
+             </div>
       
-    </div>
+        </div>
+    </header>
   )
 }
 
-export default Navbar
+export default Navbar;
