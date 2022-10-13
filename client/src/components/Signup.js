@@ -1,93 +1,61 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from "react";
 
-const Signup = () => {
+function Signup({ setUser }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-    // state for signup
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    // state for checking errors
-    const [submit, setSubmit] = useState(false);
-    const [error, setError] = useState(false);
-
-    // handle name change
-    const handleName = (e) => {
-        setName(e.target.value);
-        setSubmit(false) 
-    };
-
-    // handle email change
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-        setSubmit(false) 
-    };
-
-    // handle password change
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-        setSubmit(false) 
-    };
-
-    // handle form submission
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (name === '' || email === '' || password === '') {
-        setError(true);
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+        password_confirmation: passwordConfirmation,
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
       }
-      else {
-        setSubmit(true);
-        setError(false);
-      }
-    };
-
-    // success message
-    const successMessage = () => {
-      return (
-        <div className='success' style={{display:submit ? '' :'none'}}>
-            <h2>{name} signed up successfully </h2>
-        </div>
-      );
-    };
-
-    // error message
-    const errorMessage = () => {
-      return (
-         <div className='error' style= {{display: error ? '' : 'none',}}>
-            <h2>Enter all the fields</h2>
-      </div>
-       )
-      };
+    });
+  }
 
   return (
-    <div className='signup'>
-
-      <div>
-        <h1>Signup Form</h1>
-      </div>
-      
-      <div className='messages' >
-        {errorMessage()}
-        {successMessage()}
-
-      </div>
-
-      <form>
-        <label className="label">Name</label>
-        <input onChange={handleName} className= "input" value={name} type="text"/>
-
-        <label className="label">Email</label>
-        <input onChange={handleEmail} className= "input" value={email} type="email"/>
-
-        <label className="label">Password</label>
-        <input onChange={handlePassword} className= "input" value={password} type="password"/>
-
-        <button onClick={handleSubmit} className="btn" type="submit">Submit</button>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h1>Sign Up</h1>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          autoComplete="off"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          autoComplete="current-password"
+        />
+        <label htmlFor="password">Password Confirmation</label>
+        <input
+          type="password"
+          id="password_confirmation"
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+          autoComplete="current-password"
+        />
+        <button type="submit">Sign Up</button>
       </form>
-      
     </div>
-  )
+  );
 }
 
-export default Signup
+export default Signup;
