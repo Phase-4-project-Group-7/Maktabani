@@ -1,5 +1,6 @@
 import React from 'react'; 
 import { Link } from "react-router-dom"
+import '../styles/Navbar.css'
 
 const Navbar = ( {user, setUser}) => {
     function handleLogoutClick() {
@@ -19,29 +20,29 @@ const Navbar = ( {user, setUser}) => {
 
             <div className='navbar-elements'>
                 <Link to='/'>
-                    <div> <h3>Home</h3> </div>
+                     <h3>Home</h3> 
                 </Link>
                 <Link to='/books'>
-                    <div> <h3>Books</h3> </div>
+                    <h3>Books</h3> 
                 </Link>
                 <Link to='/categories'>
-                    <div> <h3>Categories</h3> </div>
+                     <h3>Categories</h3>
                 </Link>
                 <Link to='/reviews'>
-                    <div> <h3>Reviews</h3> </div>
+                    <h3>Reviews</h3> 
                 </Link>
 
             </div>
 
-            <div>
+            <div className='authorize'>
                 {user ? (
                 <button onClick={handleLogoutClick}>Logout</button>
                 ) : (
-                <>
-                    <Link to="/signup">Signup</Link>
+                <div className='buttons'>
+                    <Link to="/signup" className='signup'>Signup</Link>
 
-                    <Link to="/login">Login</Link>
-                </>
+                    <Link to="/login" className='login'>Login</Link>
+                </div>
                 )}
              </div>
       
