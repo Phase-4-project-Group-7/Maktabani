@@ -14,17 +14,12 @@ wrap_parameters format: []
         @book = Book.create!(book_params)
         render json: @book, status: :created
       end
-    
-      def update
-        find_book
-        @book.update!(book_params)
-        render json: @book, status: :accepted
-       end
+
     
       def destroy
         find_book
-          @show.destroy
-          head :no_content
+        @book.destroy
+        head :no_content
       end
     
       private

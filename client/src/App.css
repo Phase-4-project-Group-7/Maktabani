@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+.navbar_link {
+margin: 20px;
+background-color: bisque;
+font-size: 30px;
+font-weight: 20px;
+text-decoration: none;
+color: black;
+}
+img{
+  height: 60vh;
+}
+li{
+  border-style: double;
+  width: 200px;
+  margin:auto;
+  list-style: none;
+  }
