@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <Router>
       <Navbar/>
 
@@ -14,8 +15,11 @@ function App() {
 
       </Router>
    
+=======
+       <BooksFetching />
+>>>>>>> 501a388 (books fetching successfully set up)
     </div>
-  );
+  )
 }
 
 export default App;
