@@ -9,7 +9,7 @@ const BookDetails = () => {
 
   useEffect(() => {
     const loadBooks = async () => {
-      const resp = await fetch(`http://localhost:3000/books/${id}`)
+      const resp = await fetch(`/books/${id}`)
       const data = await resp.json();
 
       setBook(data);
@@ -30,7 +30,7 @@ const BookDetails = () => {
     }
 
     const deleteReview = async id => {
-      await fetch(`http://localhost:3000/reviews/${id}`, {method: "DELETE"})
+      await fetch(`/reviews/${id}`, {method: "DELETE"})
       removeReview(id);
     }
 

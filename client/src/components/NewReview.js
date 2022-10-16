@@ -41,7 +41,7 @@ const NewReview = () => {
       body: JSON.stringify(data)
     }
     // debugger
-    await fetch(`http://localhost:3000/books/${bookId}/reviews`, options)
+    await fetch(`/books/${bookId}/reviews`, options)
     //history(`/books/${bookId}`);
   }
 
