@@ -42,7 +42,7 @@ const NewReview = () => {
     }
     // debugger
     await fetch(`http://localhost:3000/books/${bookId}/reviews`, options)
-   // history(`/books/${bookId}`);
+    history(`/books/${bookId}`);
   }
 
   return (
@@ -60,5 +60,3 @@ const NewReview = () => {
 }
 
 export default NewReview
-
-

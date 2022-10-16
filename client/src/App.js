@@ -8,8 +8,8 @@ import NewBook from './components/NewBook';
 import ReviewList from './components/ReviewList';
 import BookDetails from './components/BookDetails'
 import NewReview from './components/NewReview'
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+//import Login from './components/Login';
+//import SignUp from './components/SignUp';
 
 
 function App() {
@@ -29,8 +29,7 @@ function App() {
         <Route exact path='/books/:bookId/reviews/new'><NewReview/></Route>
         <Route exact path='/books/new'><NewBook/></Route>
         <Route exact path='/books/:id'><BookDetails/></Route>
-        <Route exact path='/sessions/login'><Login/></Route>
-        <Route exact path='/users/new'><SignUp/></Route>
+     
         </Switch>
         </Router>
     </div>

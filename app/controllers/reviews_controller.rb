@@ -13,7 +13,7 @@ end
 def create
     find_book
     @review = @book.reviews.create!(review_params)
-    @review.user_id = @current_user.id
+    #@review.user_id = @current_user.id
    render json: @review, status: :accepted
   end
 
@@ -25,7 +25,7 @@ def create
 
   private
   def review_params
-    params.permit(:review)
+    params.permit(:review, :book_id, :user_id)
   end
   def find_review
     @review = Review.find(params[:id])

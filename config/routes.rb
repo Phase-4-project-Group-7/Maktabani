@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  resources :books, only: [:index, :show, :create, :destroy] do
+  resources :reviews, only: [:index,:show, :destroy, :post]
+  end
   resources :reviews, only: [:index,:show, :destroy]
-  resources :books, only: [:index, :show, :create, :destroy]
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  post "/books/:book_id/reviews", to: "reviews#create"
+  
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
