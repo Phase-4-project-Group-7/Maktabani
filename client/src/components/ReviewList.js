@@ -8,7 +8,7 @@ const ReviewList = () => {
 
   useEffect(() => {
     const loadReviews = async () => {
-      const resp = await fetch('http://localhost:3000/reviews')
+      const resp = await fetch('/reviews')
       const data = await resp.json();
       setReviews(data)
       setLoading(false);
@@ -23,7 +23,7 @@ const ReviewList = () => {
 
 
   const deleteReview = async id => {
-    await fetch(`http://localhost:3000/reviews/${id}`, { method: "DELETE" })
+    await fetch(`/reviews/${id}`, { method: "DELETE" })
     removeReview(id);
   }
 
