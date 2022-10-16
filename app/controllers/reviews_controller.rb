@@ -18,7 +18,7 @@ def create
   end
 
   def destroy
-    review = Review.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
     head :no_content
   end
