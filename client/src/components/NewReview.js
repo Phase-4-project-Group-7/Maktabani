@@ -30,7 +30,7 @@ const NewReview = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const data = {name: state}
+    const data = {review: state}
     const headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -42,14 +42,14 @@ const NewReview = () => {
     }
     // debugger
     await fetch(`http://localhost:3000/books/${bookId}/reviews`, options)
-    history(`/books/${bookId}`);
+    //history(`/books/${bookId}`);
   }
 
   return (
     <div>
       <h3>Create Review for {book.name}</h3>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name: </label>
+        <label htmlFor="name">Review: </label>
         <input type="text" id="name" value={state} onChange={handleChange} autoFocus={true} />
         <br />
         <br />

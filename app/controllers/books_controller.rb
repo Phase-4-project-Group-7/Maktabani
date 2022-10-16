@@ -26,9 +26,11 @@ wrap_parameters format: []
       def find_book
         @book = Book.find(params[:id])
       end
+
       def book_params
         params.permit(:name, :author, :category)
-      end    
+      end
+          
       def not_found_error
         render json: {error: "Book not found"}, status: :not_found
       end
