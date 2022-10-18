@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const NewBook= () => {
   const [name, setName] = useState("")
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const handleChange = e => {
     setName(e.target.value)
@@ -24,7 +24,7 @@ const NewBook= () => {
     }
     await fetch('/books', options);
     
-    navigate("/books");
+    // history("/books");
   }
 
 
