@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const NewBook= () => {
   const [name, setName] = useState("")
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleChange = e => {
     setName(e.target.value)
@@ -22,9 +22,9 @@ const NewBook= () => {
       headers,
       body: JSON.stringify(body)
     }
-    await fetch('http://localhost:3000/books', options)
+    await fetch('/books', options);
     
-   // history("/books");
+    navigate("/books");
   }
 
 
