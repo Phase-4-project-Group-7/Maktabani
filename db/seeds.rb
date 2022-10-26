@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Review.create!(review: "All is good", book_id: 7)
-Review.create!(review: "All is good", book_id: 7)
-Review.create!(review: "All is good", book_id: 7)
-Review.create!(review: "All is good", book_id: 7)
+Book.create!(name: "Caucassian")
+Review.create!(review: "All is good", book_id: 20)
+Review.create!(review: "All is good", book_id: 20)
+Review.create!(review: "All is good", book_id: 20)
+Review.create!(review: "All is good", book_id: 20)
