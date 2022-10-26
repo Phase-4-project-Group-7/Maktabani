@@ -1,38 +1,21 @@
 {
-  "name": "maktabani",
-  "description": "Build scripts for Heroku",
-  "engines": {
-    "node": "v16.15.0",
-    "npm": "8.19.2"
-  },
-  "scripts": {
-    "build": "npm install --prefix client && npm run build --prefix client",
-    "clean": "rm -rf public",
-    "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
-  },
-  "dependencies": {
-    "axios": "^1.1.2",
-    "fortawesome": "^0.0.1-security",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.2"
-  },
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Phase-4-project-Group-7/Maktabani.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Phase-4-project-Group-7/Maktabani/issues"
-  },
-  "homepage": "https://github.com/Phase-4-project-Group-7/Maktabani#readme"
+    "name": "maktabani",
+    "description": "Build scripts for Heroku",
+    "engines": {
+        "node": "16.x"
+        
+    },
+    "scripts": {
+        "build": "npm install --prefix client && npm run build --prefix client",
+        "clean": "rm -rf public",
+        "deploy": "cp -a client/build/. public/",
+        "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+    },
+    "dependencies": {
+        "axios": "^1.1.2",
+        "fortawesome": "^0.0.1-security",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.4.2"
+    }
 }
