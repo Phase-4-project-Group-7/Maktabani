@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: maktabani_production
   username: maktabani
   password: <%= ENV["MAKTABANI_DATABASE_PASSWORD"] %>
