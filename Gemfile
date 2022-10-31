@@ -7,7 +7,9 @@ ruby "2.7.4"
 gem "rails", "~> 7.0.4"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+#gem "pg", "~> 1.1"
+
+gem 'sinatra-contrib', '~> 2.2', '>= 2.2.2',require: false
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -48,3 +50,7 @@ end
 
 
 gem "active_model_serializers", "~> 0.10.13"
+
+group :production do
+  gem 'pg', '~> 1.4', '>= 1.4.3'
+end
