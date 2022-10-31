@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 
@@ -7,7 +7,7 @@ const NewReview = () => {
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
   const [state, setState] = useState("")
-  const history = useHistory();
+  const navigate = useNavigate();
   const { bookId } = useParams();
 
 
@@ -42,7 +42,7 @@ const NewReview = () => {
     }
     // debugger
     await fetch(`/books/${bookId}/reviews`, options)
-    history(`/books/${bookId}`);
+    navigate(`/books/${bookId}`);
   }
 
   return (
