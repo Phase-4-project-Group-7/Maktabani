@@ -13,7 +13,7 @@ const NewReview = () => {
 
   useEffect(() => {
     const loadBook = async () => {
-      const resp = await fetch(`http://localhost:3000/books/${bookId}`)
+      const resp = await fetch(`/books/${bookId}`)
       const data = await resp.json();
       setBook(data);
       setLoading(false);
