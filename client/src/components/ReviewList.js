@@ -8,7 +8,7 @@ const ReviewList = () => {
 
   useEffect(() => {
     const loadReviews = async () => {
-      const resp = await fetch('/reviews')
+      const resp = await fetch('https://maktabani.herokuapp.com/reviews')
       const data = await resp.json();
       setReviews(data)
       setLoading(false);
@@ -23,7 +23,7 @@ const ReviewList = () => {
 
 
   const deleteReview = async id => {
-    await fetch(`/reviews/${id}`, { method: "DELETE" })
+    await fetch(`https://maktabani.herokuapp.com/reviews/${id}`, { method: "DELETE" })
     removeReview(id);
   }
 

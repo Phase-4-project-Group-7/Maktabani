@@ -9,7 +9,7 @@ const BookDetails = () => {
 
   useEffect(() => {
     const loadBooks = async () => {
-      const resp = await fetch(`/books/${id}`)
+      const resp = await fetch(`https://maktabani.herokuapp.com/books/${id}`)
       const data = await resp.json();
 
       setBook(data);
@@ -30,7 +30,7 @@ const BookDetails = () => {
     }
 
     const deleteReview = async id => {
-      await fetch(`/reviews/${id}`, {method: "DELETE"})
+      await fetch(`https://maktabani.herokuapp.com/reviews/${id}`, {method: "DELETE"})
       removeReview(id);
     }
 
