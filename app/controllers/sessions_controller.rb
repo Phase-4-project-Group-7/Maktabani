@@ -9,6 +9,7 @@ skip_before_action :authorize, only: :create
     else 
       render json: {errors: ["invalid username or password"]}, status: :unauthorized
   end
+end
 
   def destroy
     session.delete :user_id 
