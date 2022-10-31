@@ -85,9 +85,4 @@ production:
   database: maktabani_production
   username: maktabani
   password: <%= ENV["MAKTABANI_DATABASE_PASSWORD"] %>
-
-  adapter: postgresql
-  encoding: unicode
-  database: production
-  host: <%= ENV['DATABASE_HOST'] %>
-  pool: 5
+  
