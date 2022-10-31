@@ -7,7 +7,7 @@ const BookList = () => {
 
   useEffect(() => {
     const loadBooks = async () => {
-      const resp = await fetch('https://maktabani.herokuapp.com/books')
+      const resp = await fetch('/books')
       const data = await resp.json();
       setBooks(data)
       setLoading(false)
@@ -21,7 +21,7 @@ const BookList = () => {
 
 
   const deleteBook = async id => {
-    await fetch(`https://maktabani.herokuapp.com/books/${id}`, { method: "DELETE" })
+    await fetch(`/books/${id}`, { method: "DELETE" })
     removeBook(id);
   }
 

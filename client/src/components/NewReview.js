@@ -13,7 +13,7 @@ const NewReview = () => {
 
   useEffect(() => {
     const loadBook = async () => {
-      const resp = await fetch(`https://maktabani.herokuapp.com/books/${bookId}`)
+      const resp = await fetch(`/books/${bookId}`)
       const data = await resp.json();
       setBook(data);
       setLoading(false);
@@ -41,7 +41,7 @@ const NewReview = () => {
       body: JSON.stringify(data)
     }
     // debugger
-    await fetch(`https://maktabani.herokuapp.com/books/${bookId}/reviews`, options)
+    await fetch(`/books/${bookId}/reviews`, options)
     navigate(`/books/${bookId}`);
   }
 

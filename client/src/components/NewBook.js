@@ -22,7 +22,7 @@ const NewBook= () => {
       headers,
       body: JSON.stringify(body)
     }
-    await fetch('https://maktabani.herokuapp.com/books', options);
+    await fetch('/books', options);
     
      navigate("/books");
   }
